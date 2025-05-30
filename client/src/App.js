@@ -1,0 +1,27 @@
+// App.js
+
+import React, { useContext } from "react";
+import RestaurantList from "../../client/src/components/RestaurantList";
+import DishesMenu from "../../client/src/components/DishesMenu";
+import Cart from "../../client/src/components/Cart";
+import { RestaurantContext } from "../../client/src/contexts/RestaurantContext";
+import "./App.css"; // Import the CSS file
+
+const App = () => {
+    const { selectedRestaurant } = useContext(RestaurantContext);
+
+    return (
+        <>
+            <div className="container">
+                <h1 className="header">GFG Food Delivery App</h1>
+                <Cart
+                    style={{ position: "absolute", right: "20px", top: "20px" }}
+                />
+                <RestaurantList />
+                {selectedRestaurant && <DishesMenu />}
+            </div>
+        </>
+    );
+};
+
+export default App;
